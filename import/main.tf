@@ -9,7 +9,7 @@ resource "null_resource" "install_cli" {
 
   provisioner "remote-exec" {
     inline = [
-      "mkdir installer/${var.cluster_id}"
+      "mkdir installer/${var.cluster_id}",
       "export KUBECONFIG=~/installer/${var.cluster_id}/kubeconfig",
       "curl -kLo cloudctl https://${var.mcm_hub_url}:443/api/cli/cloudctl-linux-amd64",
       "curl -kLo cloudctl-mc-plugin https://${var.mcm_hub_url}:443/rcm/plugins/mc-linux-amd64",
